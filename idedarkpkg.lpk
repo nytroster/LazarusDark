@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <Package Version="6">
+    <CompatibilityMode Value="False"/>
+    <PathDelim Value="\"/>
+    <Name Value="IDEDarkPkg"/>
+    <Type Value="DesignTime"/>
+    <Author Value="Oleksii Svyrydenko"/>
+    <CompilerOptions>
+      <Version Value="11"/>
+      <PathDelim Value="\"/>
+      <SearchPaths>
+        <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
+      </SearchPaths>
+    </CompilerOptions>
+    <Description Value="Dark theme for Lazarus IDE on Windows 10/11"/>
+    <License Value="MIT"/>
+    <Version Major="1"/>
+    <Files>
+      <Item>
+        <Filename Value="IDEDark.pas"/>
+        <HasRegisterProc Value="True"/>
+        <UnitName Value="IDEDark"/>
+      </Item>
+      <Item>
+        <Filename Value="IDEDarkOptions.pas"/>
+        <UnitName Value="IDEDarkOptions"/>
+      </Item>
+      <Item>
+        <Filename Value="IDEDarkSettings.pas"/>
+        <UnitName Value="IDEDarkSettings"/>
+      </Item>
+    </Files>
+    <RequiredPkgs>
+      <Item>
+        <PackageName Value="IDEIntf"/>
+      </Item>
+      <Item>
+        <PackageName Value="BuildIntf"/>
+      </Item>
+      <Item>
+        <PackageName Value="LCL"/>
+      </Item>
+      <Item>
+        <PackageName Value="FCL"/>
+      </Item>
+    </RequiredPkgs>
+    <UsageOptions>
+      <UnitPath Value="$(PkgOutDir)"/>
+    </UsageOptions>
+    <PublishOptions>
+      <Version Value="2"/>
+      <UseFileFilters Value="True"/>
+    </PublishOptions>
+  </Package>
+</CONFIG>
