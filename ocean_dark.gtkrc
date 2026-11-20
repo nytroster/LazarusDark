@@ -1,0 +1,186 @@
+# Base16 Ocean Dark Extended theme for Lazarus IDE (GTK2)
+# Colors:
+# Workbench / Panels: #21252d
+# Editor / Inputs:    #2b303b
+# Controls / Buttons: #343d46
+# Borders:            #1d2027
+# Normal Text:        #c0c5ce
+# Highlighted Text:   #eff1f5 / #ffffff
+# Muted Text:         #65737e / #a7adba
+# Selection:          #5989b9
+# Accent:             #518cc7
+
+gtk-color-scheme = "bg_color:#21252d\nfg_color:#c0c5ce\nbase_color:#2b303b\ntext_color:#c0c5ce\nselected_bg_color:#5989b9\nselected_fg_color:#ffffff\ntooltip_bg_color:#252932\ntooltip_fg_color:#c0c5ce\nlink_color:#8fa1b3\ndark_sidebar_bg:#1d2027\nnotebook_bg:#21252d"
+
+style "ocean-dark-default" {
+  bg[NORMAL]      = "#21252d"
+  bg[PRELIGHT]    = "#343d46"
+  bg[ACTIVE]      = "#1d2027"
+  bg[SELECTED]    = "#5989b9"
+  bg[INSENSITIVE] = "#21252d"
+
+  fg[NORMAL]      = "#c0c5ce"
+  fg[PRELIGHT]    = "#eff1f5"
+  fg[ACTIVE]      = "#c0c5ce"
+  fg[SELECTED]    = "#ffffff"
+  fg[INSENSITIVE] = "#65737e"
+
+  base[NORMAL]      = "#2b303b"
+  base[PRELIGHT]    = "#343d46"
+  base[ACTIVE]      = "#5989b9"
+  base[SELECTED]    = "#5989b9"
+  base[INSENSITIVE] = "#21252d"
+
+  text[NORMAL]      = "#c0c5ce"
+  text[PRELIGHT]    = "#eff1f5"
+  text[ACTIVE]      = "#ffffff"
+  text[SELECTED]    = "#ffffff"
+  text[INSENSITIVE] = "#65737e"
+
+  GtkToolbar::shadow-type = GTK_SHADOW_NONE
+  GtkMenuBar::shadow-type = GTK_SHADOW_NONE
+  GtkNotebook::tab-curvature = 2
+  GtkNotebook::tab-overlap = 0
+
+  engine "murrine" {
+    roundness = 2
+    gradient_shades = {1.0, 1.0, 1.0, 1.0}
+    contrast = 0.8
+    menubarstyle = 0
+    toolbarstyle = 0
+    menustyle = 0
+    focusstyle = 1
+  }
+}
+
+style "ocean-dark-menu" = "ocean-dark-default" {
+  bg[NORMAL]   = "#21252d"
+  bg[PRELIGHT] = "#343d46"
+  bg[ACTIVE]   = "#5989b9"
+  fg[NORMAL]   = "#c0c5ce"
+  fg[PRELIGHT] = "#ffffff"
+
+  engine "murrine" {
+    roundness = 0
+    menustyle = 0
+  }
+}
+
+style "ocean-dark-menubar" = "ocean-dark-menu" {
+  bg[NORMAL]   = "#21252d"
+  bg[PRELIGHT] = "#343d46"
+  fg[NORMAL]   = "#c0c5ce"
+  fg[PRELIGHT] = "#ffffff"
+
+  engine "murrine" {
+    roundness = 0
+    menubarstyle = 0
+  }
+}
+
+style "ocean-dark-button" = "ocean-dark-default" {
+  bg[NORMAL]   = "#343d46"
+  bg[PRELIGHT] = "#4f5b66"
+  bg[ACTIVE]   = "#21252d"
+  fg[NORMAL]   = "#c0c5ce"
+  fg[PRELIGHT] = "#ffffff"
+
+  engine "murrine" {
+    roundness = 3
+    contrast = 0.8
+  }
+}
+
+style "ocean-dark-entry" = "ocean-dark-default" {
+  bg[NORMAL]   = "#2b303b"
+  base[NORMAL] = "#2b303b"
+  text[NORMAL] = "#c0c5ce"
+}
+
+style "ocean-dark-notebook" = "ocean-dark-default" {
+  xthickness = 5
+  ythickness = 3
+
+  bg[NORMAL]   = "#414d5c"   # Active tab background (clearly lighter and visible)
+  bg[ACTIVE]   = "#1d2027"   # Inactive tab background (dark)
+  bg[PRELIGHT] = "#4a5768"   # Hover tab background
+  fg[NORMAL]   = "#ffffff"   # Active tab text (crisp bright white)
+  fg[ACTIVE]   = "#7e8a96"   # Inactive tab text (muted gray)
+  fg[PRELIGHT] = "#ffffff"   # Hover tab text
+
+  engine "murrine" {
+    roundness = 3
+    contrast = 1.0
+    highlight_shade = 1.20
+    lightborder_shade = 1.30
+    gradient_shades = {1.12, 1.04, 1.0, 0.92}
+    focus_color = "#5989b9"
+  }
+}
+
+style "ocean-dark-notebook-label" {
+  fg[NORMAL]   = "#ffffff"   # Active tab text (crisp bright white)
+  fg[ACTIVE]   = "#7e8a96"   # Inactive tab text (muted gray)
+  fg[PRELIGHT] = "#ffffff"   # Hover tab text
+  fg[SELECTED] = "#ffffff"
+}
+
+style "ocean-dark-scrollbar" = "ocean-dark-default" {
+  bg[NORMAL]   = "#4f5b66"
+  bg[PRELIGHT] = "#65737e"
+  bg[ACTIVE]   = "#343d46"
+  base[NORMAL] = "#21252d"
+
+  engine "murrine" {
+    roundness = 4
+    contrast = 0.8
+  }
+}
+
+style "ocean-dark-tree" = "ocean-dark-default" {
+  base[NORMAL] = "#2b303b"
+  base[ACTIVE] = "#5989b9"
+  text[NORMAL] = "#c0c5ce"
+  text[ACTIVE] = "#ffffff"
+}
+
+# Apply styles via widget_class (highest priority over system themes)
+widget_class "*" style "ocean-dark-default"
+
+# Containers (exact classes, no trailing wildcard so child widgets retain their styles)
+widget_class "*<GtkPaned>" style "ocean-dark-default"
+widget_class "*<GtkFrame>" style "ocean-dark-default"
+widget_class "*<GtkViewport>" style "ocean-dark-default"
+widget_class "*<GtkEventBox>" style "ocean-dark-default"
+widget_class "*<GtkScrolledWindow>" style "ocean-dark-default"
+widget_class "*<GtkHandleBox>" style "ocean-dark-default"
+widget_class "*<GtkBox>" style "ocean-dark-default"
+widget_class "*<GtkFixed>" style "ocean-dark-default"
+widget_class "*<GtkTable>" style "ocean-dark-default"
+widget_class "*<GtkLayout>" style "ocean-dark-default"
+widget_class "*<GtkStatusbar>" style "ocean-dark-default"
+widget_class "*<GtkToolbar>" style "ocean-dark-default"
+
+# Menus and Menubars
+widget_class "*<GtkMenuBar>*" style:highest "ocean-dark-menubar"
+widget_class "*<GtkMenuBar>.<GtkMenuItem>*" style:highest "ocean-dark-menu"
+widget_class "*<GtkMenu>*" style:highest "ocean-dark-menu"
+widget_class "*<GtkMenuItem>*" style:highest "ocean-dark-menu"
+
+# Controls
+widget_class "*<GtkButton>*" style:highest "ocean-dark-button"
+widget_class "*<GtkEntry>*" style:highest "ocean-dark-entry"
+widget_class "*<GtkTextView>*" style:highest "ocean-dark-entry"
+widget_class "*<GtkTreeView>*" style:highest "ocean-dark-tree"
+widget_class "*<GtkScrollbar>*" style:highest "ocean-dark-scrollbar"
+widget_class "*<GtkComboBox>*" style:highest "ocean-dark-button"
+widget_class "*<GtkComboBoxEntry>*" style:highest "ocean-dark-entry"
+
+# Notebooks and Tabs (highest priority for active/inactive tabs highlight)
+class "GtkNotebook" style:highest "ocean-dark-notebook"
+widget_class "*<GtkNotebook>" style:highest "ocean-dark-notebook"
+widget_class "*<GtkNotebook>*" style:highest "ocean-dark-notebook"
+widget_class "*<GtkNotebook>.<GtkLabel>" style:highest "ocean-dark-notebook-label"
+widget_class "*<GtkNotebook>*<GtkLabel>" style:highest "ocean-dark-notebook-label"
+widget_class "*<GtkNotebook>*<GtkEventBox>*<GtkLabel>" style:highest "ocean-dark-notebook-label"
+widget_class "*<GtkNotebook>*<GtkBox>*<GtkLabel>" style:highest "ocean-dark-notebook-label"

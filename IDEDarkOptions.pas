@@ -18,6 +18,7 @@ type
     procedure PresetClick(Sender: TObject);
     procedure InspectorClick(Sender: TObject);
     procedure SchemeClick(Sender: TObject);
+    procedure EnvironmentClick(Sender: TObject);
   public
     function GetTitle: string; override;
     procedure Setup(ADialog: TAbstractOptionsEditorDialog); override;
@@ -36,10 +37,10 @@ implementation
 const
   EnvOptionsIDEDark = 2000;
 
-  InspectorValueColor     = $00FEDC9C;
-  InspectorReferenceColor = $00C086C5;
-  InspectorSubPropColor   = $00B0C94E;
-  InspectorDifferColor    = $002D2D3A;
+  InspectorValueColor     = $007087D0; // Orange (#d08770)
+  InspectorReferenceColor = $008BCBEB; // Yellow (#ebcb8b)
+  InspectorSubPropColor   = $008CBEA3; // Green (#a3be8c)
+  InspectorDifferColor    = $00433832; // Line highlight (#323843)
 
 type
   TInspectorApplier = class
@@ -146,7 +147,7 @@ begin
   ButtonsPanel.Parent := Self;
 
   B := TButton.Create(Self);
-  B.Caption := 'Reset to Delphi Dark';
+  B.Caption := 'Reset to Ocean Dark Extended';
   B.AutoSize := True;
   B.OnClick := @PresetClick;
   B.Parent := ButtonsPanel;
@@ -158,9 +159,15 @@ begin
   B.Parent := ButtonsPanel;
 
   B := TButton.Create(Self);
-  B.Caption := 'Use the Delphi Dark editor colours';
+  B.Caption := 'Use Ocean Dark Extended editor scheme';
   B.AutoSize := True;
   B.OnClick := @SchemeClick;
+  B.Parent := ButtonsPanel;
+
+  B := TButton.Create(Self);
+  B.Caption := 'Apply Messages & Form colours';
+  B.AutoSize := True;
+  B.OnClick := @EnvironmentClick;
   B.Parent := ButtonsPanel;
 
   Note := TLabel.Create(Self);
@@ -188,13 +195,34 @@ begin
   FApplyInspectorOnSave := False;
 end;
 
+procedure TIDEDarkOptionsFrame.PresetClick(Sender: TObject);
+var
+  C: TDarkColor;
+begin
+  for C := Low(TDarkColor) to High(TDarkColor) do
+    FColorButtons[C].ButtonColor := OceanDarkPalette[C];
+end;
+
+procedure TIDEDarkOptionsFrame.InspectorClick(Sender: TObject);
+begin
+  ApplyInspectorColors;
+  FApplyInspectorOnSave := True;
+  ShowMessage('The dark Object Inspector colours are applied.');
+end;
+
 procedure TIDEDarkOptionsFrame.SchemeClick(Sender: TObject);
 begin
   InstallEditorScheme(True);
   SelectSchemePending := True;
   SaveDarkSettings;
-  ShowMessage('The Delphi Dark editor colour scheme is installed and will be ' +
+  ShowMessage('The Ocean Dark Extended editor colour scheme is installed and will be ' +
     'selected the next time the IDE starts.');
+end;
+
+procedure TIDEDarkOptionsFrame.EnvironmentClick(Sender: TObject);
+begin
+  ApplyEnvironmentOptions(True);
+  ShowMessage('Ocean Dark Extended colors applied to Messages Window and Form Editor in environmentoptions.xml.');
 end;
 
 procedure TIDEDarkOptionsFrame.WriteSettings(AOptions: TAbstractIDEOptions);
@@ -212,20 +240,6 @@ end;
 class function TIDEDarkOptionsFrame.SupportedOptionsClass: TAbstractIDEOptionsClass;
 begin
   Result := TAbstractIDEEnvironmentOptions;
-end;
-
-procedure TIDEDarkOptionsFrame.PresetClick(Sender: TObject);
-var
-  C: TDarkColor;
-begin
-  for C := Low(TDarkColor) to High(TDarkColor) do
-    FColorButtons[C].ButtonColor := DelphiDarkPalette[C];
-end;
-
-procedure TIDEDarkOptionsFrame.InspectorClick(Sender: TObject);
-begin
-  ApplyInspectorColors;
-  FApplyInspectorOnSave := True;
 end;
 
 initialization

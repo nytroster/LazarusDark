@@ -13,7 +13,7 @@
         <UnitOutputDirectory Value="lib\$(TargetCPU)-$(TargetOS)"/>
       </SearchPaths>
     </CompilerOptions>
-    <Description Value="Dark theme for Lazarus IDE on Windows 10/11"/>
+    <Description Value="Base16 Ocean Dark Extended theme for Lazarus IDE (Linux, Windows 10/11)"/>
     <License Value="MIT"/>
     <Version Major="1"/>
     <Files>
@@ -29,6 +29,14 @@
       <Item>
         <Filename Value="IDEDarkSettings.pas"/>
         <UnitName Value="IDEDarkSettings"/>
+      </Item>
+      <Item>
+        <Filename Value="OceanDarkExtended.xml"/>
+        <Type Value="Text"/>
+      </Item>
+      <Item>
+        <Filename Value="ocean_dark.gtkrc"/>
+        <Type Value="Text"/>
       </Item>
     </Files>
     <RequiredPkgs>

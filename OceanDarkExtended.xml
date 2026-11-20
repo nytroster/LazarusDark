@@ -1,0 +1,578 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <Lazarus>
+    <ColorSchemes Version="13">
+      <Names Count="1">
+        <Item1 Value="Ocean Dark Extended"/>
+      </Names>
+      <Globals Version="13">
+        <SchemeOcean_Dark_Extended>
+          <ahaDefault Background="3878955" Foreground="13551040"/>
+          <ahaGutter Background="3287333" Foreground="6050375"/>
+          <ahaLineNumber Background="3287333" Foreground="6050375"/>
+          <ahaGutterSeparator Foreground="4603188"/>
+          <ahaLineHighlight Background="4405298" FrameColor="4405298"/>
+          <ahaBracketMatch Background="6708047" FrameColor="12234151" Style="fsBold"/>
+          <ahaTextBlock Background="7493696"/>
+          <ahaHighlightWord Background="7098159"/>
+          <ahaHighlightAll Background="7374800" Foreground="16118255"/>
+          <ahaIncrementalSearch Background="7374800" Foreground="16118255"/>
+          <ahaCodeFoldingTree Foreground="6708047"/>
+          <ahaFoldedCode Background="4603188" Foreground="8287077" FrameColor="6708047"/>
+          <ahaFoldedCodeLine Foreground="4603188"/>
+          <ahaHiddenCodeLine Foreground="4603188"/>
+          <ahaRightMargin Foreground="4603188"/>
+          <ahaModifiedLine Background="13077585" Foreground="9223843" FrameColor="13077585"/>
+          <ahaMouseLink Foreground="12159321" FrameColor="12159321" FrameEdges="sfeBottom"/>
+          <ahaErrorLine Background="5590427" Foreground="16118255"/>
+          <ahaExecutionPoint Background="13077585" Foreground="16118255"/>
+          <ahaEnabledBreakpoint Background="6971839" Foreground="16118255"/>
+          <ahaDisabledBreakpoint Background="4603188" Foreground="8287077" Style="fsItalic"/>
+          <ahaInvalidBreakpoint Background="4603188" Foreground="6781355" Style="fsItalic"/>
+          <ahaUnknownBreakpoint Background="4603188" Foreground="13551040"/>
+          <ahaWordGroup FrameColor="6971839"/>
+          <ahaSyncroEditArea Background="4603188"/>
+          <ahaSyncroEditCur FrameColor="11374260"/>
+          <ahaSyncroEditOther FrameColor="11842966"/>
+          <ahaSyncroEditSync FrameColor="7374800"/>
+          <ahaTemplateEditCur FrameColor="13077585"/>
+          <ahaTemplateEditOther FrameColor="6971839"/>
+          <ahaTemplateEditSync FrameColor="11374260"/>
+          <ahaOverviewGutter Background="3287333" Foreground="3878955" FrameColor="4603188"/>
+          <ahaIdentComplWindow Background="3287333"/>
+          <ahaIdentComplWindowBorder Foreground="4603188"/>
+          <ahaIdentComplWindowHighlight Foreground="13077585"/>
+          <ahaSpecialVisibleChars Foreground="6708047"/>
+          <ahaTopInfoHint Background="4405298" Foreground="13551040" FrameColor="4603188"/>
+          <ahaIfDefBlockActive Foreground="13551040"/>
+          <ahaIfDefBlockInactive Foreground="8287077"/>
+          <ahaIfDefBlockTmpActive Foreground="13551040"/>
+          <ahaIfDefNodeActive Foreground="13551040"/>
+          <ahaIfDefNodeInactive Foreground="8287077"/>
+          <ahaIfDefNodeTmpActive Foreground="13551040"/>
+          <ahaOutlineLevel1Color MarkupFoldLineColor="11772303"/>
+          <ahaOutlineLevel2Color MarkupFoldLineColor="9161707"/>
+          <ahaOutlineLevel3Color MarkupFoldLineColor="11374260"/>
+          <ahaOutlineLevel4Color MarkupFoldLineColor="9223843"/>
+          <ahaOutlineLevel5Color MarkupFoldLineColor="11842966"/>
+          <ahaOutlineLevel6Color MarkupFoldLineColor="7374800"/>
+          <ahaOutlineLevel7Color MarkupFoldLineColor="6971839"/>
+          <ahaOutlineLevel8Color MarkupFoldLineColor="6781355"/>
+          <ahaOutlineLevel9Color MarkupFoldLineColor="12234151"/>
+          <ahaOutlineLevel10Color MarkupFoldLineColor="16118255"/>
+        </SchemeOcean_Dark_Extended>
+      </Globals>
+      <LangPlain_Text Version="13">
+        <SchemeOcean_Dark_Extended>
+          <ahaDefault Background="3878955" Foreground="13551040"/>
+          <ahaGutter Background="3287333" Foreground="6050375"/>
+          <ahaLineNumber Background="3287333" Foreground="6050375"/>
+          <ahaLineHighlight Background="4405298" FrameColor="4405298"/>
+          <ahaBracketMatch Background="6708047" FrameColor="12234151" Style="fsBold"/>
+          <ahaTextBlock Background="7493696"/>
+          <ahaCodeFoldingTree Foreground="6708047"/>
+          <ahaFoldedCode Background="4603188" Foreground="8287077" FrameColor="6708047"/>
+          <ahaFoldedCodeLine Foreground="4603188"/>
+          <ahaHiddenCodeLine Foreground="4603188"/>
+          <ahaGutterSeparator Foreground="4603188"/>
+          <ahaHighlightAll Background="7374800" Foreground="16118255"/>
+          <ahaHighlightWord Background="7098159"/>
+          <ahaIncrementalSearch Background="7374800" Foreground="16118255"/>
+          <ahaModifiedLine Background="13077585" Foreground="9223843" FrameColor="13077585"/>
+          <ahaRightMargin Foreground="4603188"/>
+        </SchemeOcean_Dark_Extended>
+      </LangPlain_Text>
+      <LangObjectPascal Version="13">
+        <SchemeOcean_Dark_Extended>
+          <ahaDefault Background="3878955" Foreground="13551040"/>
+          <ahaGutter Background="3287333" Foreground="6050375"/>
+          <ahaLineNumber Background="3287333" Foreground="6050375"/>
+          <ahaLineHighlight Background="4405298" FrameColor="4405298"/>
+          <ahaBracketMatch Background="6708047" FrameColor="12234151" Style="fsBold"/>
+          <ahaTextBlock Background="7493696"/>
+          <ahaCodeFoldingTree Foreground="6708047"/>
+          <ahaFoldedCode Background="4603188" Foreground="8287077" FrameColor="6708047"/>
+          <ahaFoldedCodeLine Foreground="4603188"/>
+          <ahaHiddenCodeLine Foreground="4603188"/>
+          <ahaGutterSeparator Foreground="4603188"/>
+          <ahaHighlightAll Background="7374800" Foreground="16118255"/>
+          <ahaHighlightWord Background="7098159"/>
+          <ahaIncrementalSearch Background="7374800" Foreground="16118255"/>
+          <ahaModifiedLine Background="13077585" Foreground="9223843" FrameColor="13077585"/>
+          <ahaRightMargin Foreground="4603188"/>
+          <Comment Foreground="8287077" Style="fsItalic"/>
+          <Directive Foreground="6781355" Style="fsBold"/>
+          <IDE_Directive Foreground="6781355" Style="fsBold"/>
+          <Number Foreground="7374800"/>
+          <Reserved_word Foreground="11374260" Style="fsBold"/>
+          <String Foreground="9223843"/>
+          <Symbol Foreground="11842966"/>
+          <Assembler Foreground="11772303" Style="fsItalic"/>
+          <Case_label Foreground="7374800" Style="fsBold"/>
+          <PasDoc_Symbol Foreground="11772303"/>
+        </SchemeOcean_Dark_Extended>
+      </LangObjectPascal>
+      <LangLazarus_Form_definition Version="13">
+        <SchemeOcean_Dark_Extended>
+          <ahaDefault Background="3878955" Foreground="13551040"/>
+          <ahaGutter Background="3287333" Foreground="6050375"/>
+          <ahaLineNumber Background="3287333" Foreground="6050375"/>
+          <ahaLineHighlight Background="4405298" FrameColor="4405298"/>
+          <ahaBracketMatch Background="6708047" FrameColor="12234151" Style="fsBold"/>
+          <ahaTextBlock Background="7493696"/>
+          <ahaCodeFoldingTree Foreground="6708047"/>
+          <ahaFoldedCode Background="4603188" Foreground="8287077" FrameColor="6708047"/>
+          <ahaFoldedCodeLine Foreground="4603188"/>
+          <ahaHiddenCodeLine Foreground="4603188"/>
+          <ahaGutterSeparator Foreground="4603188"/>
+          <ahaHighlightAll Background="7374800" Foreground="16118255"/>
+          <ahaHighlightWord Background="7098159"/>
+          <ahaIncrementalSearch Background="7374800" Foreground="16118255"/>
+          <ahaModifiedLine Background="13077585" Foreground="9223843" FrameColor="13077585"/>
+          <ahaRightMargin Foreground="4603188"/>
+          <Comment Foreground="8287077" Style="fsItalic"/>
+          <Key Foreground="11374260" Style="fsBold"/>
+          <Number Foreground="7374800"/>
+          <String Foreground="9223843"/>
+          <Symbol Foreground="11842966"/>
+        </SchemeOcean_Dark_Extended>
+      </LangLazarus_Form_definition>
+      <LangXML_document Version="13">
+        <SchemeOcean_Dark_Extended>
+          <ahaDefault Background="3878955" Foreground="13551040"/>
+          <ahaGutter Background="3287333" Foreground="6050375"/>
+          <ahaLineNumber Background="3287333" Foreground="6050375"/>
+          <ahaLineHighlight Background="4405298" FrameColor="4405298"/>
+          <ahaBracketMatch Background="6708047" FrameColor="12234151" Style="fsBold"/>
+          <ahaTextBlock Background="7493696"/>
+          <ahaCodeFoldingTree Foreground="6708047"/>
+          <ahaFoldedCode Background="4603188" Foreground="8287077" FrameColor="6708047"/>
+          <ahaFoldedCodeLine Foreground="4603188"/>
+          <ahaHiddenCodeLine Foreground="4603188"/>
+          <ahaGutterSeparator Foreground="4603188"/>
+          <ahaHighlightAll Background="7374800" Foreground="16118255"/>
+          <ahaHighlightWord Background="7098159"/>
+          <ahaIncrementalSearch Background="7374800" Foreground="16118255"/>
+          <ahaModifiedLine Background="13077585" Foreground="9223843" FrameColor="13077585"/>
+          <ahaRightMargin Foreground="4603188"/>
+          <Attribute_Name Foreground="7374800"/>
+          <Attribute_Value Foreground="9223843"/>
+          <CDATA_Section Foreground="8287077" Style="fsItalic"/>
+          <Comment Foreground="8287077" Style="fsItalic"/>
+          <DOCTYPE_Section Foreground="6781355" Style="fsItalic"/>
+          <Element_Name Foreground="6971839" Style="fsBold"/>
+          <Entity_Reference Foreground="11772303"/>
+          <Namespace_Attribute_Name Foreground="7374800"/>
+          <Namespace_Attribute_Value Foreground="9223843"/>
+          <Processing_Instruction Foreground="11842966"/>
+          <Symbol Foreground="11842966"/>
+          <Text Foreground="13551040"/>
+        </SchemeOcean_Dark_Extended>
+      </LangXML_document>
+      <LangHTML_document Version="13">
+        <SchemeOcean_Dark_Extended>
+          <ahaDefault Background="3878955" Foreground="13551040"/>
+          <ahaGutter Background="3287333" Foreground="6050375"/>
+          <ahaLineNumber Background="3287333" Foreground="6050375"/>
+          <ahaLineHighlight Background="4405298" FrameColor="4405298"/>
+          <ahaBracketMatch Background="6708047" FrameColor="12234151" Style="fsBold"/>
+          <ahaTextBlock Background="7493696"/>
+          <ahaCodeFoldingTree Foreground="6708047"/>
+          <ahaFoldedCode Background="4603188" Foreground="8287077" FrameColor="6708047"/>
+          <ahaFoldedCodeLine Foreground="4603188"/>
+          <ahaHiddenCodeLine Foreground="4603188"/>
+          <ahaGutterSeparator Foreground="4603188"/>
+          <ahaHighlightAll Background="7374800" Foreground="16118255"/>
+          <ahaHighlightWord Background="7098159"/>
+          <ahaIncrementalSearch Background="7374800" Foreground="16118255"/>
+          <ahaModifiedLine Background="13077585" Foreground="9223843" FrameColor="13077585"/>
+          <ahaRightMargin Foreground="4603188"/>
+          <Asp Background="7493696" Foreground="16118255"/>
+          <Comment Foreground="8287077" Style="fsItalic"/>
+          <Escape_ampersand Foreground="11842966" Style="fsBold"/>
+          <Identifier Foreground="7374800"/>
+          <Reserved_word Foreground="6971839" Style="fsBold"/>
+          <Symbol Foreground="11842966"/>
+          <Unknown_word Foreground="6971839" Style="fsBold"/>
+          <Value Foreground="9223843"/>
+        </SchemeOcean_Dark_Extended>
+      </LangHTML_document>
+      <LangC__ Version="13">
+        <SchemeOcean_Dark_Extended>
+          <ahaDefault Background="3878955" Foreground="13551040"/>
+          <ahaGutter Background="3287333" Foreground="6050375"/>
+          <ahaLineNumber Background="3287333" Foreground="6050375"/>
+          <ahaLineHighlight Background="4405298" FrameColor="4405298"/>
+          <ahaBracketMatch Background="6708047" FrameColor="12234151" Style="fsBold"/>
+          <ahaTextBlock Background="7493696"/>
+          <ahaCodeFoldingTree Foreground="6708047"/>
+          <ahaFoldedCode Background="4603188" Foreground="8287077" FrameColor="6708047"/>
+          <ahaFoldedCodeLine Foreground="4603188"/>
+          <ahaHiddenCodeLine Foreground="4603188"/>
+          <ahaGutterSeparator Foreground="4603188"/>
+          <ahaHighlightAll Background="7374800" Foreground="16118255"/>
+          <ahaHighlightWord Background="7098159"/>
+          <ahaIncrementalSearch Background="7374800" Foreground="16118255"/>
+          <ahaModifiedLine Background="13077585" Foreground="9223843" FrameColor="13077585"/>
+          <ahaRightMargin Foreground="4603188"/>
+          <Assembler Foreground="11772303" Style="fsItalic"/>
+          <Comment Foreground="8287077" Style="fsItalic"/>
+          <Number Foreground="7374800"/>
+          <Preprocessor Foreground="6781355" Style="fsBold"/>
+          <Reserved_word Foreground="11374260" Style="fsBold"/>
+          <Space Foreground="13551040"/>
+          <String Foreground="9223843"/>
+          <Symbol Foreground="11842966"/>
+        </SchemeOcean_Dark_Extended>
+      </LangC__>
+      <LangPerl Version="13">
+        <SchemeOcean_Dark_Extended>
+          <ahaDefault Background="3878955" Foreground="13551040"/>
+          <ahaGutter Background="3287333" Foreground="6050375"/>
+          <ahaLineNumber Background="3287333" Foreground="6050375"/>
+          <ahaLineHighlight Background="4405298" FrameColor="4405298"/>
+          <ahaBracketMatch Background="6708047" FrameColor="12234151" Style="fsBold"/>
+          <ahaTextBlock Background="7493696"/>
+          <ahaCodeFoldingTree Foreground="6708047"/>
+          <ahaFoldedCode Background="4603188" Foreground="8287077" FrameColor="6708047"/>
+          <ahaFoldedCodeLine Foreground="4603188"/>
+          <ahaHiddenCodeLine Foreground="4603188"/>
+          <ahaGutterSeparator Foreground="4603188"/>
+          <ahaHighlightAll Background="7374800" Foreground="16118255"/>
+          <ahaHighlightWord Background="7098159"/>
+          <ahaIncrementalSearch Background="7374800" Foreground="16118255"/>
+          <ahaModifiedLine Background="13077585" Foreground="9223843" FrameColor="13077585"/>
+          <ahaRightMargin Foreground="4603188"/>
+          <Comment Foreground="8287077" Style="fsItalic"/>
+          <Number Foreground="7374800"/>
+          <Pragma Foreground="6781355" Style="fsBold"/>
+          <Reserved_word Foreground="11374260" Style="fsBold"/>
+          <Space Foreground="13551040"/>
+          <String Foreground="9223843"/>
+          <Symbol Foreground="11842966"/>
+          <Variable Foreground="6971839"/>
+        </SchemeOcean_Dark_Extended>
+      </LangPerl>
+      <LangJava Version="13">
+        <SchemeOcean_Dark_Extended>
+          <ahaDefault Background="3878955" Foreground="13551040"/>
+          <ahaGutter Background="3287333" Foreground="6050375"/>
+          <ahaLineNumber Background="3287333" Foreground="6050375"/>
+          <ahaLineHighlight Background="4405298" FrameColor="4405298"/>
+          <ahaBracketMatch Background="6708047" FrameColor="12234151" Style="fsBold"/>
+          <ahaTextBlock Background="7493696"/>
+          <ahaCodeFoldingTree Foreground="6708047"/>
+          <ahaFoldedCode Background="4603188" Foreground="8287077" FrameColor="6708047"/>
+          <ahaFoldedCodeLine Foreground="4603188"/>
+          <ahaHiddenCodeLine Foreground="4603188"/>
+          <ahaGutterSeparator Foreground="4603188"/>
+          <ahaHighlightAll Background="7374800" Foreground="16118255"/>
+          <ahaHighlightWord Background="7098159"/>
+          <ahaIncrementalSearch Background="7374800" Foreground="16118255"/>
+          <ahaModifiedLine Background="13077585" Foreground="9223843" FrameColor="13077585"/>
+          <ahaRightMargin Foreground="4603188"/>
+          <Comment Foreground="8287077" Style="fsItalic"/>
+          <Documentation Foreground="8287077" Style="fsItalic"/>
+          <Number Foreground="7374800"/>
+          <Reserved_word Foreground="11374260" Style="fsBold"/>
+          <Space Foreground="13551040"/>
+          <String Foreground="9223843"/>
+          <Symbol Foreground="11842966"/>
+        </SchemeOcean_Dark_Extended>
+      </LangJava>
+      <LangUNIX_Shell_Script Version="13">
+        <SchemeOcean_Dark_Extended>
+          <ahaDefault Background="3878955" Foreground="13551040"/>
+          <ahaGutter Background="3287333" Foreground="6050375"/>
+          <ahaLineNumber Background="3287333" Foreground="6050375"/>
+          <ahaLineHighlight Background="4405298" FrameColor="4405298"/>
+          <ahaBracketMatch Background="6708047" FrameColor="12234151" Style="fsBold"/>
+          <ahaTextBlock Background="7493696"/>
+          <ahaCodeFoldingTree Foreground="6708047"/>
+          <ahaFoldedCode Background="4603188" Foreground="8287077" FrameColor="6708047"/>
+          <ahaFoldedCodeLine Foreground="4603188"/>
+          <ahaHiddenCodeLine Foreground="4603188"/>
+          <ahaGutterSeparator Foreground="4603188"/>
+          <ahaHighlightAll Background="7374800" Foreground="16118255"/>
+          <ahaHighlightWord Background="7098159"/>
+          <ahaIncrementalSearch Background="7374800" Foreground="16118255"/>
+          <ahaModifiedLine Background="13077585" Foreground="9223843" FrameColor="13077585"/>
+          <ahaRightMargin Foreground="4603188"/>
+          <Comment Foreground="8287077" Style="fsItalic"/>
+          <Number Foreground="7374800"/>
+          <Reserved_word Foreground="11374260" Style="fsBold"/>
+          <String Foreground="9223843"/>
+          <Symbol Foreground="11842966"/>
+          <Variable Foreground="6971839"/>
+        </SchemeOcean_Dark_Extended>
+      </LangUNIX_Shell_Script>
+      <LangPython Version="13">
+        <SchemeOcean_Dark_Extended>
+          <ahaDefault Background="3878955" Foreground="13551040"/>
+          <ahaGutter Background="3287333" Foreground="6050375"/>
+          <ahaLineNumber Background="3287333" Foreground="6050375"/>
+          <ahaLineHighlight Background="4405298" FrameColor="4405298"/>
+          <ahaBracketMatch Background="6708047" FrameColor="12234151" Style="fsBold"/>
+          <ahaTextBlock Background="7493696"/>
+          <ahaCodeFoldingTree Foreground="6708047"/>
+          <ahaFoldedCode Background="4603188" Foreground="8287077" FrameColor="6708047"/>
+          <ahaFoldedCodeLine Foreground="4603188"/>
+          <ahaHiddenCodeLine Foreground="4603188"/>
+          <ahaGutterSeparator Foreground="4603188"/>
+          <ahaHighlightAll Background="7374800" Foreground="16118255"/>
+          <ahaHighlightWord Background="7098159"/>
+          <ahaIncrementalSearch Background="7374800" Foreground="16118255"/>
+          <ahaModifiedLine Background="13077585" Foreground="9223843" FrameColor="13077585"/>
+          <ahaRightMargin Foreground="4603188"/>
+          <Comment Foreground="8287077" Style="fsItalic"/>
+          <Documentation Foreground="8287077" Style="fsItalic"/>
+          <Float Foreground="7374800"/>
+          <Hexadecimal Foreground="7374800"/>
+          <Non_reserved_keyword Foreground="11772303"/>
+          <Number Foreground="7374800"/>
+          <Octal Foreground="7374800"/>
+          <Reserved_word Foreground="11374260" Style="fsBold"/>
+          <String Foreground="9223843"/>
+          <Symbol Foreground="11842966"/>
+          <SyntaxError Background="5590427" Foreground="16118255"/>
+          <System_functions_and_variables Foreground="11772303"/>
+        </SchemeOcean_Dark_Extended>
+      </LangPython>
+      <LangPHP Version="13">
+        <SchemeOcean_Dark_Extended>
+          <ahaDefault Background="3878955" Foreground="13551040"/>
+          <ahaGutter Background="3287333" Foreground="6050375"/>
+          <ahaLineNumber Background="3287333" Foreground="6050375"/>
+          <ahaLineHighlight Background="4405298" FrameColor="4405298"/>
+          <ahaBracketMatch Background="6708047" FrameColor="12234151" Style="fsBold"/>
+          <ahaTextBlock Background="7493696"/>
+          <ahaCodeFoldingTree Foreground="6708047"/>
+          <ahaFoldedCode Background="4603188" Foreground="8287077" FrameColor="6708047"/>
+          <ahaFoldedCodeLine Foreground="4603188"/>
+          <ahaHiddenCodeLine Foreground="4603188"/>
+          <ahaGutterSeparator Foreground="4603188"/>
+          <ahaHighlightAll Background="7374800" Foreground="16118255"/>
+          <ahaHighlightWord Background="7098159"/>
+          <ahaIncrementalSearch Background="7374800" Foreground="16118255"/>
+          <ahaModifiedLine Background="13077585" Foreground="9223843" FrameColor="13077585"/>
+          <ahaRightMargin Foreground="4603188"/>
+          <Comment Foreground="8287077" Style="fsItalic"/>
+          <Number Foreground="7374800"/>
+          <Reserved_word Foreground="11374260" Style="fsBold"/>
+          <String Foreground="9223843"/>
+          <Symbol Foreground="11842966"/>
+        </SchemeOcean_Dark_Extended>
+      </LangPHP>
+      <LangSQL Version="13">
+        <SchemeOcean_Dark_Extended>
+          <ahaDefault Background="3878955" Foreground="13551040"/>
+          <ahaGutter Background="3287333" Foreground="6050375"/>
+          <ahaLineNumber Background="3287333" Foreground="6050375"/>
+          <ahaLineHighlight Background="4405298" FrameColor="4405298"/>
+          <ahaBracketMatch Background="6708047" FrameColor="12234151" Style="fsBold"/>
+          <ahaTextBlock Background="7493696"/>
+          <ahaCodeFoldingTree Foreground="6708047"/>
+          <ahaFoldedCode Background="4603188" Foreground="8287077" FrameColor="6708047"/>
+          <ahaFoldedCodeLine Foreground="4603188"/>
+          <ahaHiddenCodeLine Foreground="4603188"/>
+          <ahaGutterSeparator Foreground="4603188"/>
+          <ahaHighlightAll Background="7374800" Foreground="16118255"/>
+          <ahaHighlightWord Background="7098159"/>
+          <ahaIncrementalSearch Background="7374800" Foreground="16118255"/>
+          <ahaModifiedLine Background="13077585" Foreground="9223843" FrameColor="13077585"/>
+          <ahaRightMargin Foreground="4603188"/>
+          <Comment Foreground="8287077" Style="fsItalic"/>
+          <Data_type Foreground="9161707" Style="fsBold"/>
+          <Default_packages Foreground="11772303"/>
+          <Exception Foreground="6971839" Style="fsItalic"/>
+          <Function Foreground="11772303" Style="fsBold"/>
+          <Number Foreground="7374800"/>
+          <Reserved_word Foreground="11374260" Style="fsBold"/>
+          <Reserved_word__PL_SQL_ Foreground="11374260" Style="fsBold"/>
+          <SQL_Plus_command Foreground="6781355" Style="fsBold"/>
+          <String Foreground="9223843"/>
+          <Symbol Foreground="11842966"/>
+        </SchemeOcean_Dark_Extended>
+      </LangSQL>
+      <LangCascading_style_sheets Version="13">
+        <SchemeOcean_Dark_Extended>
+          <ahaDefault Background="3878955" Foreground="13551040"/>
+          <ahaGutter Background="3287333" Foreground="6050375"/>
+          <ahaLineNumber Background="3287333" Foreground="6050375"/>
+          <ahaLineHighlight Background="4405298" FrameColor="4405298"/>
+          <ahaBracketMatch Background="6708047" FrameColor="12234151" Style="fsBold"/>
+          <ahaTextBlock Background="7493696"/>
+          <ahaCodeFoldingTree Foreground="6708047"/>
+          <ahaFoldedCode Background="4603188" Foreground="8287077" FrameColor="6708047"/>
+          <ahaFoldedCodeLine Foreground="4603188"/>
+          <ahaHiddenCodeLine Foreground="4603188"/>
+          <ahaGutterSeparator Foreground="4603188"/>
+          <ahaHighlightAll Background="7374800" Foreground="16118255"/>
+          <ahaHighlightWord Background="7098159"/>
+          <ahaIncrementalSearch Background="7374800" Foreground="16118255"/>
+          <ahaModifiedLine Background="13077585" Foreground="9223843" FrameColor="13077585"/>
+          <ahaRightMargin Foreground="4603188"/>
+        </SchemeOcean_Dark_Extended>
+      </LangCascading_style_sheets>
+      <LangJavascript Version="13">
+        <SchemeOcean_Dark_Extended>
+          <ahaDefault Background="3878955" Foreground="13551040"/>
+          <ahaGutter Background="3287333" Foreground="6050375"/>
+          <ahaLineNumber Background="3287333" Foreground="6050375"/>
+          <ahaLineHighlight Background="4405298" FrameColor="4405298"/>
+          <ahaBracketMatch Background="6708047" FrameColor="12234151" Style="fsBold"/>
+          <ahaTextBlock Background="7493696"/>
+          <ahaCodeFoldingTree Foreground="6708047"/>
+          <ahaFoldedCode Background="4603188" Foreground="8287077" FrameColor="6708047"/>
+          <ahaFoldedCodeLine Foreground="4603188"/>
+          <ahaHiddenCodeLine Foreground="4603188"/>
+          <ahaGutterSeparator Foreground="4603188"/>
+          <ahaHighlightAll Background="7374800" Foreground="16118255"/>
+          <ahaHighlightWord Background="7098159"/>
+          <ahaIncrementalSearch Background="7374800" Foreground="16118255"/>
+          <ahaModifiedLine Background="13077585" Foreground="9223843" FrameColor="13077585"/>
+          <ahaRightMargin Foreground="4603188"/>
+          <Comment Foreground="8287077" Style="fsItalic"/>
+          <Number Foreground="7374800"/>
+          <Reserved_word Foreground="11374260" Style="fsBold"/>
+          <String Foreground="9223843"/>
+          <Symbol Foreground="11842966"/>
+        </SchemeOcean_Dark_Extended>
+      </LangJavascript>
+      <LangDiff_File Version="13">
+        <SchemeOcean_Dark_Extended>
+          <ahaDefault Background="3878955" Foreground="13551040"/>
+          <ahaGutter Background="3287333" Foreground="6050375"/>
+          <ahaLineNumber Background="3287333" Foreground="6050375"/>
+          <ahaLineHighlight Background="4405298" FrameColor="4405298"/>
+          <ahaBracketMatch Background="6708047" FrameColor="12234151" Style="fsBold"/>
+          <ahaTextBlock Background="7493696"/>
+          <ahaCodeFoldingTree Foreground="6708047"/>
+          <ahaFoldedCode Background="4603188" Foreground="8287077" FrameColor="6708047"/>
+          <ahaFoldedCodeLine Foreground="4603188"/>
+          <ahaHiddenCodeLine Foreground="4603188"/>
+          <ahaGutterSeparator Foreground="4603188"/>
+          <ahaHighlightAll Background="7374800" Foreground="16118255"/>
+          <ahaHighlightWord Background="7098159"/>
+          <ahaIncrementalSearch Background="7374800" Foreground="16118255"/>
+          <ahaModifiedLine Background="13077585" Foreground="9223843" FrameColor="13077585"/>
+          <ahaRightMargin Foreground="4603188"/>
+          <Diff_Added_line Background="3878955" Foreground="9223843"/>
+          <Diff_Changed_Line Background="3878955" Foreground="11374260"/>
+          <Diff_Chunk_Line_Counts Foreground="11772303" Style="fsBold"/>
+          <Diff_Chunk_Marker Foreground="13551040" Style="fsBold"/>
+          <Diff_Chunk_New_Line_Count Foreground="9223843" Style="fsBold"/>
+          <Diff_Chunk_Original_Line_Count Foreground="6971839" Style="fsBold"/>
+          <Diff_New_File Foreground="9223843" Style="fsBold"/>
+          <Diff_Original_File Foreground="6971839" Style="fsBold"/>
+          <Diff_Removed_Line Background="3878955" Foreground="6971839"/>
+          <Unknown_word Style="fsItalic"/>
+        </SchemeOcean_Dark_Extended>
+      </LangDiff_File>
+      <LangMS_DOS_batch_language Version="13">
+        <SchemeOcean_Dark_Extended>
+          <ahaDefault Background="3878955" Foreground="13551040"/>
+          <ahaGutter Background="3287333" Foreground="6050375"/>
+          <ahaLineNumber Background="3287333" Foreground="6050375"/>
+          <ahaLineHighlight Background="4405298" FrameColor="4405298"/>
+          <ahaBracketMatch Background="6708047" FrameColor="12234151" Style="fsBold"/>
+          <ahaTextBlock Background="7493696"/>
+          <ahaCodeFoldingTree Foreground="6708047"/>
+          <ahaFoldedCode Background="4603188" Foreground="8287077" FrameColor="6708047"/>
+          <ahaFoldedCodeLine Foreground="4603188"/>
+          <ahaHiddenCodeLine Foreground="4603188"/>
+          <ahaGutterSeparator Foreground="4603188"/>
+          <ahaHighlightAll Background="7374800" Foreground="16118255"/>
+          <ahaHighlightWord Background="7098159"/>
+          <ahaIncrementalSearch Background="7374800" Foreground="16118255"/>
+          <ahaModifiedLine Background="13077585" Foreground="9223843" FrameColor="13077585"/>
+          <ahaRightMargin Foreground="4603188"/>
+          <Comment Foreground="8287077" Style="fsItalic"/>
+          <Key Foreground="11374260" Style="fsBold"/>
+          <Number Foreground="7374800"/>
+          <Variable Foreground="6971839"/>
+        </SchemeOcean_Dark_Extended>
+      </LangMS_DOS_batch_language>
+      <LangINI_file Version="13">
+        <SchemeOcean_Dark_Extended>
+          <ahaDefault Background="3878955" Foreground="13551040"/>
+          <ahaGutter Background="3287333" Foreground="6050375"/>
+          <ahaLineNumber Background="3287333" Foreground="6050375"/>
+          <ahaLineHighlight Background="4405298" FrameColor="4405298"/>
+          <ahaBracketMatch Background="6708047" FrameColor="12234151" Style="fsBold"/>
+          <ahaTextBlock Background="7493696"/>
+          <ahaCodeFoldingTree Foreground="6708047"/>
+          <ahaFoldedCode Background="4603188" Foreground="8287077" FrameColor="6708047"/>
+          <ahaFoldedCodeLine Foreground="4603188"/>
+          <ahaHiddenCodeLine Foreground="4603188"/>
+          <ahaGutterSeparator Foreground="4603188"/>
+          <ahaHighlightAll Background="7374800" Foreground="16118255"/>
+          <ahaHighlightWord Background="7098159"/>
+          <ahaIncrementalSearch Background="7374800" Foreground="16118255"/>
+          <ahaModifiedLine Background="13077585" Foreground="9223843" FrameColor="13077585"/>
+          <ahaRightMargin Foreground="4603188"/>
+          <Comment Foreground="8287077" Style="fsItalic"/>
+          <Number Foreground="7374800"/>
+          <Section Foreground="11374260" Style="fsBold"/>
+        </SchemeOcean_Dark_Extended>
+      </LangINI_file>
+      <Langpo_language_files Version="13">
+        <SchemeOcean_Dark_Extended>
+          <ahaDefault Background="3878955" Foreground="13551040"/>
+          <ahaGutter Background="3287333" Foreground="6050375"/>
+          <ahaLineNumber Background="3287333" Foreground="6050375"/>
+          <ahaLineHighlight Background="4405298" FrameColor="4405298"/>
+          <ahaBracketMatch Background="6708047" FrameColor="12234151" Style="fsBold"/>
+          <ahaTextBlock Background="7493696"/>
+          <ahaCodeFoldingTree Foreground="6708047"/>
+          <ahaFoldedCode Background="4603188" Foreground="8287077" FrameColor="6708047"/>
+          <ahaFoldedCodeLine Foreground="4603188"/>
+          <ahaHiddenCodeLine Foreground="4603188"/>
+          <ahaGutterSeparator Foreground="4603188"/>
+          <ahaHighlightAll Background="7374800" Foreground="16118255"/>
+          <ahaHighlightWord Background="7098159"/>
+          <ahaIncrementalSearch Background="7374800" Foreground="16118255"/>
+          <ahaModifiedLine Background="13077585" Foreground="9223843" FrameColor="13077585"/>
+          <ahaRightMargin Foreground="4603188"/>
+          <Comment Foreground="8287077" Style="fsItalic"/>
+          <Flags Foreground="11842966"/>
+          <Identifier Foreground="11772303" Style="fsBold"/>
+          <Key Foreground="11374260" Style="fsBold"/>
+          <Previous_value Foreground="8287077" Style="fsItalic"/>
+          <String Foreground="9223843"/>
+        </SchemeOcean_Dark_Extended>
+      </Langpo_language_files>
+      <LangPike Version="13">
+        <SchemeOcean_Dark_Extended>
+          <ahaDefault Background="3878955" Foreground="13551040"/>
+          <ahaGutter Background="3287333" Foreground="6050375"/>
+          <ahaLineNumber Background="3287333" Foreground="6050375"/>
+          <ahaLineHighlight Background="4405298" FrameColor="4405298"/>
+          <ahaBracketMatch Background="6708047" FrameColor="12234151" Style="fsBold"/>
+          <ahaTextBlock Background="7493696"/>
+          <ahaCodeFoldingTree Foreground="6708047"/>
+          <ahaFoldedCode Background="4603188" Foreground="8287077" FrameColor="6708047"/>
+          <ahaFoldedCodeLine Foreground="4603188"/>
+          <ahaHiddenCodeLine Foreground="4603188"/>
+          <ahaGutterSeparator Foreground="4603188"/>
+          <ahaHighlightAll Background="7374800" Foreground="16118255"/>
+          <ahaHighlightWord Background="7098159"/>
+          <ahaIncrementalSearch Background="7374800" Foreground="16118255"/>
+          <ahaModifiedLine Background="13077585" Foreground="9223843" FrameColor="13077585"/>
+          <ahaRightMargin Foreground="4603188"/>
+        </SchemeOcean_Dark_Extended>
+      </LangPike>
+      <LangDisassembler_Window Version="13">
+        <SchemeOcean_Dark_Extended>
+          <ahaDefault Background="3878955" Foreground="13551040" UseSchemeGlobals="False"/>
+          <ahaAsmSourceFunc Style="fsBold" Foreground="11374260"/>
+          <ahaAsmSourceLine Style="fsBold" Foreground="7374800"/>
+          <ahaTextBlock Background="6708047" Foreground="13551040" UseSchemeGlobals="False" ForePriority="400" BackPriority="400" FramePriority="400"/>
+          <ahaLineHighlight Foreground="13551040" FrameColor="13551040" UseSchemeGlobals="False" Background="4405298" ForePriority="1000" BackPriority="1000" FramePriority="1000"/>
+          <ahaMouseLink Style="fsUnderline" FrameColor="clNone" UseSchemeGlobals="False"/>
+          <ahaAsmLinkTarget Foreground="11772303"/>
+        </SchemeOcean_Dark_Extended>
+      </LangDisassembler_Window>
+    </ColorSchemes>
+  </Lazarus>
+</CONFIG>

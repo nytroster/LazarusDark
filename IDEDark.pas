@@ -6,19 +6,57 @@ unit IDEDark;
 interface
 
 procedure Register;
+procedure StartDark;
 
 implementation
 
 uses
-  {$IFDEF MSWINDOWS}
-  CommCtrl, UxTheme, Win32Extra, LCLType, LCLStrConsts, InterfaceBase, TypInfo,
+  SysUtils, Classes, TypInfo,
   Graphics, Forms, Controls, StdCtrls, ComCtrls, ExtCtrls, Menus, Dialogs, Themes,
-  Windows,
+  Buttons, Grids,
+  InterfaceBase, LCLType,
+  {$IFDEF MSWINDOWS}
+  CommCtrl, UxTheme, Win32Extra, LCLStrConsts, Windows,
   {$ENDIF}
-  SysUtils, Classes, IDEDarkSettings, IDEDarkOptions;
+  IDEDarkSettings, IDEDarkOptions;
+
+type
+  TTreeViewAccess = class(TCustomTreeView);
+  TCoolBarAccess = class(TCustomCoolBar);
+  TControlAccess = class(TControl);
+
+var
+  Colors: TDarkPalette;
+  Installed: Boolean = False;
+  Started: Boolean = False;
+
+function SysColorRole(Index: LongInt; out Role: TDarkColor): Boolean;
+begin
+  Result := True;
+  case Index of
+    COLOR_SCROLLBAR:                     Role := dcControl;
+    COLOR_BACKGROUND, COLOR_MENU,
+    COLOR_APPWORKSPACE, COLOR_BTNFACE,
+    COLOR_MENUBAR:                       Role := dcWindow;
+    COLOR_WINDOW:                        Role := dcEdit;
+    COLOR_WINDOWFRAME, COLOR_ACTIVEBORDER,
+    COLOR_INACTIVEBORDER:                Role := dcBorder;
+    COLOR_MENUTEXT, COLOR_WINDOWTEXT,
+    COLOR_BTNTEXT, COLOR_INFOTEXT:       Role := dcText;
+    COLOR_HIGHLIGHT:                     Role := dcSelection;
+    COLOR_HIGHLIGHTTEXT:                 Role := dcSelectionText;
+    COLOR_BTNSHADOW, COLOR_BTNHIGHLIGHT: Role := dcShadow;
+    COLOR_GRAYTEXT:                      Role := dcGrayText;
+    COLOR_3DDKSHADOW:                    Role := dcDkShadow;
+    COLOR_3DLIGHT:                       Role := dcLight3D;
+    COLOR_INFOBK:                        Role := dcHint;
+    COLOR_MENUHILIGHT:                   Role := dcHot;
+  else
+    Result := False;
+  end;
+end;
 
 {$IFDEF MSWINDOWS}
-
 const
   PropThemed: PWideChar = 'IDEDark';
   PropHot: PWideChar = 'IDEDarkHot';
@@ -165,9 +203,6 @@ type
   TSubclassKind = (skTopWindow, skEdge, skTabs, skStatusBar, skButton, skCombo, skComboEdit,
     skDialog);
 
-  TTreeViewAccess = class(TCustomTreeView);
-  TCoolBarAccess = class(TCustomCoolBar);
-  TControlAccess = class(TControl);
   TWinControlAccess = class(TWinControl);
 
 function FillRect(DC: HDC; const R: TRect; Brush: HBRUSH): LongInt; stdcall; external 'user32.dll';
@@ -205,10 +240,7 @@ function OffsetViewportOrgEx(DC: HDC; X, Y: LongInt; Old: Pointer): BOOL; stdcal
 function GetModuleFileNameW(Module: HMODULE; Buf: PWideChar; Size: DWORD): DWORD; stdcall; external 'kernel32.dll';
 
 var
-  Installed: Boolean = False;
-  Started: Boolean = False;
   WinBuild: DWORD = 0;
-  Colors: TDarkPalette;
   Brushes: array[TDarkColor] of HBRUSH;
   SysBrushes: array[0..31] of HBRUSH;
 
@@ -333,32 +365,6 @@ begin
   Y := (R.Top + R.Bottom - H) div 2;
   for I := 0 to H - 1 do
     FillBox(DC, X + I, Y + I, X + W - I, Y + I + 1, Brush);
-end;
-
-function SysColorRole(Index: LongInt; out Role: TDarkColor): Boolean;
-begin
-  Result := True;
-  case Index of
-    COLOR_SCROLLBAR:                   Role := dcControl;
-    COLOR_BACKGROUND, COLOR_MENU,
-    COLOR_APPWORKSPACE, COLOR_BTNFACE,
-    COLOR_MENUBAR:                     Role := dcWindow;
-    COLOR_WINDOW:                      Role := dcEdit;
-    COLOR_WINDOWFRAME, COLOR_ACTIVEBORDER,
-    COLOR_INACTIVEBORDER:              Role := dcBorder;
-    COLOR_MENUTEXT, COLOR_WINDOWTEXT,
-    COLOR_BTNTEXT, COLOR_INFOTEXT:     Role := dcText;
-    COLOR_HIGHLIGHT:                   Role := dcSelection;
-    COLOR_HIGHLIGHTTEXT:               Role := dcSelectionText;
-    COLOR_BTNSHADOW, COLOR_BTNHIGHLIGHT: Role := dcShadow;
-    COLOR_GRAYTEXT:                    Role := dcGrayText;
-    COLOR_3DDKSHADOW:                  Role := dcDkShadow;
-    COLOR_3DLIGHT:                     Role := dcLight3D;
-    COLOR_INFOBK:                      Role := dcHint;
-    COLOR_MENUHILIGHT:                 Role := dcHot;
-  else
-    Result := False;
-  end;
 end;
 
 function HookGetSysColor(Index: LongInt): DWORD; stdcall;
@@ -1660,165 +1666,6 @@ begin
   Result := True;
 end;
 
-procedure FixVirtualTree(C: TControl);
-var
-  Options: TObject;
-  PaintOptions: string;
-begin
-  if (Pos('Tree', C.ClassName) = 0) or not IsPublishedProp(C, 'TreeOptions') then Exit;
-  Options := GetObjectProp(C, 'TreeOptions');
-  if (Options = nil) or not IsPublishedProp(Options, 'PaintOptions') then Exit;
-  PaintOptions := ',' + GetSetProp(Options, 'PaintOptions', False) + ',';
-  if Pos(',toThemeAware,', PaintOptions) = 0 then Exit;
-  PaintOptions := StringReplace(PaintOptions, ',toThemeAware,', ',', []);
-  SetSetProp(Options, 'PaintOptions', Copy(PaintOptions, 2, Length(PaintOptions) - 2));
-  C.Invalidate;
-end;
-
-procedure FixLabelColor(C: TControl);
-var
-  Color, R, G, B, MaxC, MinC: LongInt;
-  Role: TDarkColor;
-begin
-  Color := LongInt(TControlAccess(C).Font.Color);
-  if Color < 0 then
-  begin
-    if not SysColorRole(Color and $FF, Role) then Exit;
-    Color := Colors[Role];
-  end
-  else if (Color shr 24) <> 0 then
-    Exit;
-  R := Color and $FF;
-  G := (Color shr 8) and $FF;
-  B := (Color shr 16) and $FF;
-  if (R * 299 + G * 587 + B * 114) div 1000 >= 110 then Exit;
-  MaxC := R;
-  if G > MaxC then MaxC := G;
-  if B > MaxC then MaxC := B;
-  MinC := R;
-  if G < MinC then MinC := G;
-  if B < MinC then MinC := B;
-  if MaxC - MinC < 40 then
-    TControlAccess(C).Font.Color := Colors[dcText]
-  else if (B = MaxC) and (B - R > 40) then
-    TControlAccess(C).Font.Color := Colors[dcLink]
-  else
-    TControlAccess(C).Font.Color :=
-      (R + (255 - R) * 6 div 10) or
-      ((G + (255 - G) * 6 div 10) shl 8) or
-      ((B + (255 - B) * 6 div 10) shl 16);
-end;
-
-procedure FixControl(C: TControl);
-begin
-  if C is TCustomTreeView then
-  begin
-    if tvoThemedDraw in TTreeViewAccess(C).Options then
-      TTreeViewAccess(C).Options := TTreeViewAccess(C).Options - [tvoThemedDraw];
-  end
-  else if C is TCustomCoolBar then
-  begin
-    if TCoolBarAccess(C).Themed then
-    begin
-      TCoolBarAccess(C).Themed := False;
-      C.Invalidate;
-    end;
-  end
-  else if C is TCustomListView then
-  begin
-    if TControlAccess(C).Font.Color = clDefault then
-      TControlAccess(C).Font.Color := clWindowText;
-    if TControlAccess(C).Color = clDefault then
-      TControlAccess(C).Color := clWindow;
-  end
-  else if C is TCustomLabel then
-    FixLabelColor(C);
-  FixVirtualTree(C);
-end;
-
-procedure FixControls(Parent: TWinControl);
-var
-  I: LongInt;
-  C: TControl;
-begin
-  for I := 0 to Parent.ControlCount - 1 do
-  begin
-    C := Parent.Controls[I];
-    if csDesigning in C.ComponentState then Continue;
-    FixControl(C);
-    if C is TWinControl then
-      FixControls(TWinControl(C));
-  end;
-end;
-
-procedure FixHintWindow(Form: TCustomForm);
-var
-  Hint: THintWindow;
-begin
-  if not (Form is THintWindow) then Exit;
-  Hint := THintWindow(Form);
-  if (Hint.ControlCount > 0) or (Hint.Color = Colors[dcHint]) then Exit;
-  Hint.Color := Colors[dcHint];
-  Hint.Font.Color := Colors[dcText];
-end;
-
-procedure FixForm(Form: TCustomForm);
-begin
-  if (Form = nil) or (csDesigning in Form.ComponentState) then Exit;
-  FixHintWindow(Form);
-  FixControls(Form);
-end;
-
-type
-  TDarkDriver = class
-  private
-    FTimer: TTimer;
-    FTicks: LongInt;
-    procedure Tick(Sender: TObject);
-    procedure FormVisibleChanged(Sender: TObject; Form: TCustomForm);
-  public
-    constructor Create;
-  end;
-
-var
-  Driver: TDarkDriver = nil;
-
-constructor TDarkDriver.Create;
-begin
-  inherited Create;
-  FTimer := TTimer.Create(nil);
-  FTimer.Interval := 100;
-  FTimer.OnTimer := @Tick;
-  FTimer.Enabled := True;
-  Screen.AddHandlerFormVisibleChanged(@FormVisibleChanged, False);
-end;
-
-procedure TDarkDriver.Tick(Sender: TObject);
-var
-  I: LongInt;
-begin
-  Inc(FTicks);
-  try
-    EnumThreadWindows(GetCurrentThreadId, @EnumTopProc, 0);
-    for I := 0 to Screen.CustomFormCount - 1 do
-      FixForm(Screen.CustomForms[I]);
-    if (FTicks = 10) or (FTicks = 30) then
-      EnumThreadWindows(GetCurrentThreadId, @RedrawTopProc, 0);
-  except
-  end;
-end;
-
-procedure TDarkDriver.FormVisibleChanged(Sender: TObject; Form: TCustomForm);
-begin
-  try
-    if not Form.Visible then Exit;
-    FixForm(Form);
-    if Form.HandleAllocated and (Form.Parent = nil) then
-      EnumTopProc(Form.Handle, 0);
-  except
-  end;
-end;
-
 function GetWindowsBuild: DWORD;
 var
   RtlGetVersion: function(var Info: TOSVersionRec): LongInt; stdcall;
@@ -1887,25 +1734,229 @@ begin
   Installed := True;
 end;
 
-procedure StartDark;
+
+procedure StartDarkWindows;
 begin
-  if Started or not Installed or (WidgetSet = nil) or (Screen = nil) then Exit;
-  Started := True;
   PatchAllImports;
   InstallThemeHooks;
   MenuHook := SetWindowsHookExW(WH_CALLWNDPROCRET, @MenuMessageHook, 0, GetCurrentThreadId);
   CreateHook := SetWindowsHookExW(WH_CBT, @CreateWindowHook, 0, GetCurrentThreadId);
-  Driver := TDarkDriver.Create;
 end;
 
 {$ENDIF}
 
+procedure FixVirtualTree(C: TControl);
+var
+  Options: TObject;
+  PaintOptions: string;
+begin
+  if (Pos('Tree', C.ClassName) = 0) or not IsPublishedProp(C, 'TreeOptions') then Exit;
+  Options := GetObjectProp(C, 'TreeOptions');
+  if (Options = nil) or not IsPublishedProp(Options, 'PaintOptions') then Exit;
+  PaintOptions := ',' + GetSetProp(Options, 'PaintOptions', False) + ',';
+  if Pos(',toThemeAware,', PaintOptions) = 0 then Exit;
+  PaintOptions := StringReplace(PaintOptions, ',toThemeAware,', ',', []);
+  SetSetProp(Options, 'PaintOptions', Copy(PaintOptions, 2, Length(PaintOptions) - 2));
+  C.Invalidate;
+end;
+
+procedure FixLabelColor(C: TControl);
+var
+  Color, R, G, B, MaxC, MinC: LongInt;
+  Role: TDarkColor;
+begin
+  Color := LongInt(TControlAccess(C).Font.Color);
+  if (Color = LongInt(clDefault)) or (Color = LongInt(clWindowText)) or (Color = LongInt(clBtnText)) then
+  begin
+    TControlAccess(C).Font.Color := Colors[dcText];
+    Exit;
+  end;
+  if Color < 0 then
+  begin
+    if SysColorRole(Color and $FF, Role) then
+      Color := Colors[Role]
+    else
+      Exit;
+  end
+  else if (Color shr 24) <> 0 then
+    Exit;
+  R := Color and $FF;
+  G := (Color shr 8) and $FF;
+  B := (Color shr 16) and $FF;
+  if (R * 299 + G * 587 + B * 114) div 1000 >= 110 then Exit;
+  MaxC := R;
+  if G > MaxC then MaxC := G;
+  if B > MaxC then MaxC := B;
+  MinC := R;
+  if G < MinC then MinC := G;
+  if B < MinC then MinC := B;
+  if MaxC - MinC < 40 then
+    TControlAccess(C).Font.Color := Colors[dcText]
+  else if (B = MaxC) and (B - R > 40) then
+    TControlAccess(C).Font.Color := Colors[dcLink]
+  else
+    TControlAccess(C).Font.Color :=
+      (R + (255 - R) * 6 div 10) or
+      ((G + (255 - G) * 6 div 10) shl 8) or
+      ((B + (255 - B) * 6 div 10) shl 16);
+end;
+
+procedure FixControl(C: TControl);
+begin
+  if (C = nil) or (csDesigning in C.ComponentState) then Exit;
+
+  if C is TCustomTreeView then
+  begin
+    if tvoThemedDraw in TTreeViewAccess(C).Options then
+      TTreeViewAccess(C).Options := TTreeViewAccess(C).Options - [tvoThemedDraw];
+  end
+  else if C is TCustomCoolBar then
+  begin
+    if TCoolBarAccess(C).Themed then
+    begin
+      TCoolBarAccess(C).Themed := False;
+      C.Invalidate;
+    end;
+  end
+  else if C is TCustomListView then
+  begin
+    if TControlAccess(C).Font.Color = clDefault then
+      TControlAccess(C).Font.Color := clWindowText;
+    if TControlAccess(C).Color = clDefault then
+      TControlAccess(C).Color := clWindow;
+  end
+  else if C is TCustomLabel then
+    FixLabelColor(C);
+
+  FixVirtualTree(C);
+end;
+
+procedure FixControls(Parent: TWinControl);
+var
+  I: LongInt;
+  C: TControl;
+begin
+  if (Parent = nil) or (csDesigning in Parent.ComponentState) then Exit;
+  for I := 0 to Parent.ControlCount - 1 do
+  begin
+    C := Parent.Controls[I];
+    if (C = nil) or (csDesigning in C.ComponentState) then Continue;
+    FixControl(C);
+    if C is TWinControl then
+      FixControls(TWinControl(C));
+  end;
+end;
+
+procedure FixHintWindow(Form: TCustomForm);
+var
+  Hint: THintWindow;
+begin
+  if not (Form is THintWindow) then Exit;
+  Hint := THintWindow(Form);
+  if (Hint.ControlCount > 0) or (Hint.Color = Colors[dcHint]) then Exit;
+  Hint.Color := Colors[dcHint];
+  Hint.Font.Color := Colors[dcText];
+end;
+
+procedure FixForm(Form: TCustomForm);
+begin
+  if (Form = nil) or (csDesigning in Form.ComponentState) then Exit;
+  FixHintWindow(Form);
+  FixControls(Form);
+end;
+
+type
+  TDarkDriver = class
+  private
+    FTimer: TTimer;
+    FTicks: LongInt;
+    procedure Tick(Sender: TObject);
+    procedure FormVisibleChanged(Sender: TObject; Form: TCustomForm);
+  public
+    constructor Create;
+    destructor Destroy; override;
+  end;
+
+var
+  Driver: TDarkDriver = nil;
+
+constructor TDarkDriver.Create;
+begin
+  inherited Create;
+  FTimer := TTimer.Create(nil);
+  FTimer.Interval := 200;
+  FTimer.OnTimer := @Tick;
+  FTimer.Enabled := True;
+  if Screen <> nil then
+    Screen.AddHandlerFormVisibleChanged(@FormVisibleChanged, False);
+end;
+
+destructor TDarkDriver.Destroy;
+begin
+  if Screen <> nil then
+    Screen.RemoveHandlerFormVisibleChanged(@FormVisibleChanged);
+  FreeAndNil(FTimer);
+  inherited Destroy;
+end;
+
+procedure TDarkDriver.Tick(Sender: TObject);
+var
+  I: LongInt;
+begin
+  Inc(FTicks);
+  try
+    {$IFDEF MSWINDOWS}
+    EnumThreadWindows(GetCurrentThreadId, @EnumTopProc, 0);
+    {$ENDIF}
+    if Screen <> nil then
+    begin
+      for I := 0 to Screen.CustomFormCount - 1 do
+        FixForm(Screen.CustomForms[I]);
+    end;
+    {$IFDEF MSWINDOWS}
+    if (FTicks = 10) or (FTicks = 30) then
+      EnumThreadWindows(GetCurrentThreadId, @RedrawTopProc, 0);
+    {$ENDIF}
+    if (FTicks mod 10 = 1) then
+      ApplyInspectorColors;
+  except
+  end;
+end;
+
+procedure TDarkDriver.FormVisibleChanged(Sender: TObject; Form: TCustomForm);
+begin
+  try
+    if (Form = nil) or not Form.Visible then Exit;
+    FixForm(Form);
+    {$IFDEF MSWINDOWS}
+    if Form.HandleAllocated and (Form.Parent = nil) then
+      EnumTopProc(Form.Handle, 0);
+    {$ENDIF}
+    if Form.ClassNameIs('TObjectInspectorDlg') then
+      ApplyInspectorColors;
+  except
+  end;
+end;
+
+procedure StartDark;
+begin
+  if Started or (WidgetSet = nil) or (Screen = nil) then Exit;
+  Colors := Palette;
+  Started := True;
+  {$IFDEF MSWINDOWS}
+  InstallDark;
+  StartDarkWindows;
+  {$ENDIF}
+  if Driver = nil then
+    Driver := TDarkDriver.Create;
+  ApplyInspectorColors;
+end;
+
 procedure Register;
 begin
   RegisterIDEDarkOptions;
-  {$IFDEF MSWINDOWS}
-  StartDark;
-  {$ENDIF}
+  if DarkEnabled then
+    StartDark;
 end;
 
 initialization
